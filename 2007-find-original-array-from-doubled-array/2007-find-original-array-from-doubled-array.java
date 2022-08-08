@@ -2,20 +2,24 @@ class Solution {
     public int[] findOriginalArray(int[] changed) {
         if(changed.length%2!=0) return new int[0];
         int[] result = new int[changed.length/2];
-
-        ArrayList<Integer> temp = IntStream.of(changed).boxed().collect(Collectors.toCollection(ArrayList::new));
-        Collections.sort(temp, Collections.reverseOrder());
+        Arrays.sort(changed);
+        Queue<Integer> temp = new LinkedList<>();
         
-        for(int i=1,j=0; i<temp.size();){
-            if(temp.get(i)*2==temp.get(j)) {
-                result[j]= temp.remove(i);
-                 
-                if(result[j]==0) i++;
-                j++;
+        for(int i=0,k=0; i<changed.length; i++){
+
+            if(!temp.isEmpty() && temp.peek()==changed[i]){
+                temp.poll();
             }
-            else i++;  
+            else if(!temp.isEmpty() && temp.peek()<changed[i] || k>=result.length){
+                return new int[0];
+            }
+            else {
+                result[k]=changed[i];
+                temp.add(changed[i]*2);
+                k++;
+            }
         }
-        System.out.print(temp);
-        return (temp.size()==result.length)?result:new int[0];
+ 
+        return result;
     }
 }
