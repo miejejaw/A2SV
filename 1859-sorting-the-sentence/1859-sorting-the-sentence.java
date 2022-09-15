@@ -8,7 +8,7 @@ class Solution {
           while(k>=0 && s.charAt(k)!=' '){
               k--;
           }
-          result += s.substring(k+1,j)+" ";
+          result += s.substring(k+1,j) + " ";
           i++;
       }
      return result.trim();
