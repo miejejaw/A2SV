@@ -6,14 +6,8 @@ class Solution {
                 int y= (int)(Math.pow(b[0],2) + Math.pow(b[1],2));
                 return x-y;
             }
-        });
+        });        
         
-        int[][] result = new int[k][2];
-        for(int i=0; i<k; i++){
-            result[i][0] = points[i][0];
-            result[i][1] = points[i][1];
-        }
-        
-        return result;
+        return Arrays.copyOf(points, k);
     }
 }
