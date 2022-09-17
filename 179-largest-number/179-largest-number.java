@@ -1,13 +1,13 @@
 class Solution {
     public String largestNumber(int[] nums) {
        
-        String[] temp = Arrays.stream(nums).mapToObj(String::valueOf).toArray(String[]::new);
-        Arrays.sort(temp, new Comparator<String>(){
-            public int compare(String a, String b) {
-                return (b+a).compareTo(a+b);
+        Integer[] data =  Arrays.stream(nums).boxed().toArray( Integer[]::new );
+        Arrays.sort(data, new Comparator<Integer>(){
+            public int compare(Integer a, Integer b) {
+                return (String.valueOf(b) + String.valueOf(a)).compareTo(String.valueOf(a) + String.valueOf(b));
             }
-        } );
+        });
         
-        return String.join("",temp).replaceFirst("^0+(?!$)", "");
+        return Arrays.toString(data).replaceAll("\\[|\\]|,|\\s", "").replaceFirst("^0+(?!$)", "");
     }
 }
