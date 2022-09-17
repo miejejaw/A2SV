@@ -6,7 +6,7 @@ class Solution {
             public int compare(String a, String b) {
                 return (b+a).compareTo(a+b);
             }
-        } );
+        });
         
         return String.join("",temp).replaceFirst("^0+(?!$)", "");
     }
