@@ -6,7 +6,6 @@ class Solution {
                return (b+a).compareTo(a+b);
            }
        });
-        System.out.print(Arrays.toString(nums));
        return nums[k-1];
     }
 }
