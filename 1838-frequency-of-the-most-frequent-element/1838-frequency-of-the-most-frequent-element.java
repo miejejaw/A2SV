@@ -7,7 +7,7 @@ class Solution {
             if((i-j+1)*nums[i]-sum<=k)
                 max=Math.max(max,i-j+1);
             else
-                sum-=nums[j++];
+                
         }
         return max;
     }
