@@ -8,9 +8,7 @@ class Solution {
                 max=Math.max(max,i-j+1);
             else
                 sum-=nums[j++];
-            
         }
-
         return max;
     }
 }
