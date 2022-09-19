@@ -1,19 +1,18 @@
 class Solution {
     public int maxFrequency(int[] nums, int k) {
+        
         Arrays.sort(nums);
-        int max=1,count=1,i=nums.length-2,j=nums.length-1;
-        while(i>=0){
-            if(k>=nums[j]-nums[i]){
-                k-=nums[j]-nums[i];
-                i--;
-                count++;
-                max=Math.max(count,max);
+        int l=nums.length-1,r=nums.length-2,max=1;
+        while(r>=0){           
+            if(nums[r]+k>=nums[l]){                
+                k-=nums[l]-nums[r];
+                r--; 
+                max=Math.max(max,l-r);
             }
             else{
-                j--;
-                count--;
-                k+=(nums[j+1]-nums[j])*(j-i);
-            }
+                l--;
+                k+=(l-r)*(nums[l+1]-nums[l]);
+            }            
         }
         return max;
     }
