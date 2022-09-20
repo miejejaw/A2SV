@@ -11,6 +11,6 @@ class Solution {
             else if(k-nums[l]>nums[r]) l++;
             else r--;
         }
-        return count++;
+        return count;
     }
 }
