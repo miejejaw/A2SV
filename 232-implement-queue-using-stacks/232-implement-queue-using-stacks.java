@@ -9,13 +9,11 @@ class MyQueue {
     }
     
     public int pop() {
-       int temp= stack.get(0);
-       stack.removeElementAt(0);
-       return temp;
+       return stack.remove(0);
     }
     
     public int peek() {
-       return stack.get(0);
+       return stack.firstElement();
     }
     
     public boolean empty() {
