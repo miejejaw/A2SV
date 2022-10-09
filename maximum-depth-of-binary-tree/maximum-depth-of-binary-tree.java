@@ -1,13 +1,8 @@
 class Solution {
-    int max=0;
     public int maxDepth(TreeNode root) {
-        helper(root,1);
-        return max;
-    }
-    public void helper(TreeNode root,int i){
-        if(root==null) return;
-        max=Math.max(max,i);
-        helper(root.left,i+1);
-        helper(root.right,i+1);
+        if(root==null) return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return Math.max(left,right)+1;
     }
 }
