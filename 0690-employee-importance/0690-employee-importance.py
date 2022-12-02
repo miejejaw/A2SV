@@ -9,17 +9,14 @@ class Employee:
 
 class Solution:
     def getImportance(self, employees: List['Employee'], id: int) -> int:
-        total = 0       
-        def helper(id: int):
-            nonlocal total
-            for i,val in enumerate(employees):
-                if val.id == id:
-                    id = i
-                    break            
-            total += employees[id].importance
-            for i in employees[id].subordinates:
-                helper(i)
-        helper(id)
+        total = 0
+        for i,val in enumerate(employees):
+            if val.id == id:
+                id = i
+                break            
+        for i in employees[id].subordinates:
+            total += self.getImportance(employees,i)
+        total += employees[id].importance
         return total
         
 #10 57
