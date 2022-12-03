@@ -1,11 +1,11 @@
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        def helper(i: int)-> int:            
-            for j in range(len(isConnected)):           
-                if isConnected[i][j]==1:
-                    isConnected[i][j] = 2
-                    isConnected[j][i] = 2
-                    helper(j)
+        def helper(i: int):            
+            while 1 in isConnected[i]:           
+                j = isConnected[i].index(1)
+                isConnected[i][j] = 2
+                isConnected[j][i] = 2
+                helper(j)
             return 1
         ans = 0
         for i in range(len(isConnected)):           
