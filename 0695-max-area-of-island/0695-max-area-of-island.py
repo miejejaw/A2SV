@@ -1,22 +1,11 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        ans,row,col,count = 0,len(grid),len(grid[0]),0 
-        def helper(i,j):
-            if i<0 or i==row or j<0 or j==col or grid[i][j]==0: return 
-            nonlocal count
-            count += 1
-              
+        ans, n, m = 0, len(grid), len(grid[0])
+        def trav(i: int, j: int) -> int:
+            if i < 0 or j < 0 or i >= n or j >= m or not grid[i][j]: return 0
             grid[i][j] = 0
-            helper(i+1,j)
-            helper(i-1,j)
-            helper(i,j+1)
-            helper(i,j-1)
-            
-        for i in range(row):
-            while 1 in grid[i]:
-                helper(i,grid[i].index(1))
-                ans = max(ans,count)
-                count = 0
-        return ans    
-    
-# 00 10
+            return 1 + trav(i-1, j) + trav(i, j-1) + trav(i+1, j) + trav(i, j+1)
+        
+        for i, j in product(range(n), range(m)):
+            if grid[i][j]: ans = max(ans, trav(i, j))
+        return ans
