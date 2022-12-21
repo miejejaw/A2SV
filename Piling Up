@@ -1,0 +1,20 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+    left,right = 0,len(arr)-1
+    prev = max(arr[0],arr[-1])
+    ans = "Yes"
+    while right>=left:   
+        if arr[left]>=arr[right] and arr[left]<= prev:        
+            prev = arr[left]
+            left += 1
+        elif arr[right]<=prev: 
+            prev = arr[right]
+            right -= 1
+        else: 
+            ans = "No"
+            break 
+    print(ans)
