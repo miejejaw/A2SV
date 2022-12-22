@@ -1,13 +1,11 @@
 class Solution:
     def freqAlphabets(self, s: str) -> str:
-        st,ans = [],''
-        for ch in s:
-            if '#' == ch:
-                temp1 = st.pop()
-                temp2 = st.pop()+temp1
-                st.append(temp2)
+        i,ans = len(s)-1,''
+        while i >= 0:
+            if '#' == s[i]:
+                ans = chr(96+int(s[i-2]+s[i-1])) + ans
+                i -= 2
             else: 
-                st.append(ch)
-        while len(st)>0:
-            ans = chr(96+int(st.pop())) + ans
+                ans = chr(96+int(s[i])) + ans
+            i -= 1
         return ans
