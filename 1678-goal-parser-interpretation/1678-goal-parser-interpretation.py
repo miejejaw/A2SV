@@ -2,14 +2,16 @@ class Solution:
     def interpret(self, command: str) -> str:
         index = 0
         size = len(command)
+        result = ''
         while size > index:
             if command[index]=='(' and command[index+1] == ')':
-                command = command[:index]+"o"+command[index+2:]
-                size -= 1
+                index += 2
+                result += 'o'
             elif command[index] != 'G':
-                command = command[:index]+"al"+command[index+4:]
-                size -= 2
+                result += 'al'
+                index += 4
+            else: 
+                result += 'G'
                 index += 1
-            index += 1
-        return command
+        return result
                 
