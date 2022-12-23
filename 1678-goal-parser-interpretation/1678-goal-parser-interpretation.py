@@ -4,14 +4,14 @@ class Solution:
         size = len(command)
         result = ''
         while size > index:
-            if command[index]=='(' and command[index+1] == ')':
+            if command[index:index+2]=='()':
                 index += 2
                 result += 'o'
-            elif command[index] != 'G':
-                result += 'al'
-                index += 4
-            else: 
+            elif command[index] == 'G':
                 result += 'G'
                 index += 1
+            else: 
+                result += 'al'
+                index += 4
         return result
                 
