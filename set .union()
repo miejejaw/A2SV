@@ -1,0 +1,6 @@
+setA_len = int(input())
+setA = set(map(int,input().split()))
+setB_len = int(input())
+setB = set(map(int, input().split()))
+result = setA|setB
+print(len(result))
