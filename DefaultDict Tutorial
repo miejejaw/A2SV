@@ -1,11 +1,10 @@
 from collections import defaultdict
 
-groupA = defaultdict(lambda: [])
+groupA = defaultdict(list)
 
 n,m = map(int,input().split())
 for i in range(1,n+1):
-    letter = input()
-    groupA[letter].append(i)
+    groupA[input()].append(i)
 for _ in range(m):
     letter = input()
     if groupA[letter]:
