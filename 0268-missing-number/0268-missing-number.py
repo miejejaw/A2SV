@@ -3,8 +3,5 @@ class Solution:
         
         n = len(nums)
         arr_dif = (n * (n+1) // 2) - sum(nums)
-        
-        if not arr_dif and 0 in nums:
-            return n+1
-        else:
-            return arr_dif
+               
+        return arr_dif
