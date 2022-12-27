@@ -1,0 +1,10 @@
+setA = set(map(int,input().split()))
+n = int(input())
+setA_len = len(setA)
+ans = True
+for _ in range(n):
+    sub_set = set(map(int, input().split()))
+    if sub_set - setA or setA_len <= len(sub_set):
+        ans = False
+        break
+print(ans)
