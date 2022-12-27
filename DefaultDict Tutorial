@@ -1,0 +1,14 @@
+from collections import defaultdict
+
+groupA = defaultdict(lambda: [])
+
+n,m = map(int,input().split())
+for i in range(1,n+1):
+    letter = input()
+    groupA[letter].append(i)
+for _ in range(m):
+    letter = input()
+    if groupA[letter]:
+        print(*groupA[letter])
+    else:
+        print(-1)
