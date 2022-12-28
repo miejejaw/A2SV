@@ -32,14 +32,12 @@ class Solution:
                 source[temp] += source[i][last+2:]
                 source[i] = ""
                 i = temp-1
-            else: i += 1
-       
-        ans = []
-        for item in source:
-            if item != '':
-                ans.append(item)
-        return ans
+            else: 
+                if source[i] == '':
+                    del source[i]
+                    size -= 1
+                else:
+                    i += 1
+
+        return source
         
-        
-        
-#48
