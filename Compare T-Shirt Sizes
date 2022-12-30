@@ -1,0 +1,13 @@
+n = int(input())
+for _ in range(n):
+    a,b = input().split()
+    if a[-1] == b[-1]:
+        if a[-1]=="S":
+            a,b = b,a
+        if len(a)>len(b): print(">")
+        elif len(a)<len(b): print("<")
+        else: print("=")
+    elif a[-1]>b[-1]:
+        print("<")
+    else:
+        print(">")
