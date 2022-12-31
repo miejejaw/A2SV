@@ -5,8 +5,9 @@ class Solution:
         row,col = len(mat),len(mat[0])
         i=j=0    
         flag = False
+        count = row*col
         
-        while row-1>i or col-1>j:
+        while count:
             if flag:
                 #move downward
                 while i<row and j>=0:
@@ -14,6 +15,7 @@ class Solution:
                     result.append(mat[i][j])
                     j -= 1
                     i += 1   
+                    count -= 1
                 
                 if j<0 and i<row:
                     j = 0
@@ -28,6 +30,7 @@ class Solution:
                     result.append(mat[i][j])
                     i -= 1
                     j += 1
+                    count -= 1
                 if i<0 and j<col:
                     i = 0 
                 else:
@@ -35,6 +38,5 @@ class Solution:
                     j -= 1
             flag = not flag
 
-        result.append(mat[i][j])
         return result
                     
