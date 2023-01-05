@@ -2,12 +2,14 @@ class Solution:
     def queensAttacktheKing(self, queens: List[List[int]], king: List[int]) -> List[List[int]]:
         arr = [(-1,-1),(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1),(0,-1)]
         ans = []
-        for x,y in arr:
-            temp = [king[0]+x,king[1]+y]
-            while 0<=temp[0]<8 and 0<=temp[1]<8:
-                if temp in queens:
-                    ans.append(temp)
+        queens = set(map(tuple,queens))
+        for dx,dy in arr:
+            x = king[0]+dx
+            y = king[1]+dy
+            while 0<=x<8 and 0<=y<8:
+                if (x,y) in queens:
+                    ans.append([x,y])
                     break
-                temp[0] += x
-                temp[1] += y
+                x += dx
+                y += dy
         return ans
