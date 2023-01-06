@@ -1,0 +1,23 @@
+n,k = map(int,input().split())
+
+nums = list(map(int, input().split()))
+is_sleep = list(map(int, input().split()))
+total = 0
+
+for i,is_zero in enumerate(is_sleep):
+    if is_zero:
+        total += nums[i]
+
+temp = 0
+ans = 0
+for i in range(n):
+    if i>=k:
+        if not is_sleep[i-k]:
+            temp -= nums[i-k]
+        if not is_sleep[i]:
+            temp += nums[i]
+    elif not is_sleep[i]:
+        temp += nums[i]
+    ans = max(ans,temp)
+
+print(total+ans)
