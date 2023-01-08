@@ -5,18 +5,17 @@ class Solution:
         self.arr = [(1,0),(-1,0),(0,1),(0,-1)]
         count = 0
         for row in range(self.row_len):            
-            while 1 in grid2[row]: 
-                col = grid2[row].index(1) 
-                count += self.trav(grid1,grid2,row,col)
+            for col in range(self.col_len):                
+                if grid2[row][col]:
+                    count += self.trav(grid1,grid2,row,col)
         return count
     
     def trav (self, grid1, grid2, row, col):
         if row<0 or row==self.row_len or col<0 or col==self.col_len or grid2[row][col]==0:
             return True
         res  = True
-        
+                
         grid2[row][col] = 0
         for r,c in self.arr:
-            if not self.trav(grid1,grid2,row+r,col+c):
-                res = False
-        return grid1[row][col]==1 and res
+            res = self.trav(grid1,grid2,row+r,col+c) and res
+        return res and grid1[row][col]
