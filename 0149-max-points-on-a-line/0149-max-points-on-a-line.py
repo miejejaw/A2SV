@@ -6,7 +6,6 @@ class Solution:
             dic = collections.defaultdict(int)
             x1,y1 = points[i]
             for j in range(i+1,len(points)):
-                if i==j: continue
                 x2,y2 = points[j]
                 temp = 'v' if x2==x1 else (y2-y1)/(x2-x1)
                 
