@@ -14,8 +14,7 @@ class Solution:
                 newdic[ind] = min(tempdic[ind],dic[ind])
             dic = newdic
         ans = []
-        for ind,freq in enumerate(dic):
-            for _ in range(freq):
-                ans.append(chr(ind+97))
+        for ind,freq in enumerate(dic): 
+            ans += [chr(ind+97)]*freq
             
         return ans
