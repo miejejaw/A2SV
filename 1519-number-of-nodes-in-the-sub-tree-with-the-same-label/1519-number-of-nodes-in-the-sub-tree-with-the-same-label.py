@@ -11,16 +11,17 @@ class Solution:
         return self.ans
     
     def trav(self, key):
-        res = defaultdict(int)
-        letter = self.labels[key]
-        res[letter] = 1
-        
+        res = [0]*26
+
         while self.dic[key]:
             node = self.dic[key].pop()
             self.dic[node].remove(key)
-            dic = self.trav(node)
-            for k,val in dic.items():
-                res[k] += val
-        self.ans[key] = res[letter]
+            temp = self.trav(node)
+            for i,freq in enumerate(temp):
+                res[i] += freq
+                
+        ind = ord(self.labels[key])-97
+        res[ind] += 1
+        self.ans[key] = res[ind]
         return res
         
