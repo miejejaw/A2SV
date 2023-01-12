@@ -1,22 +1,21 @@
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
-        dic = defaultdict(int)
+        dic = [0]*26
         size = len(words)
         for ch in words[0]:
-            dic[ch] += 1
+            dic[ord(ch)-97] += 1
             
         for ind in range(1,size):
-            tempdic = defaultdict(int)
+            tempdic = [0]*26
             for ch in words[ind]:
-                tempdic[ch] += 1
-            newdic = defaultdict(int)
-            for ch in tempdic:
-                if dic[ch]:
-                    newdic[ch] = min(tempdic[ch],dic[ch])
+                tempdic[ord(ch)-97] += 1
+            newdic = [0]*26
+            for ind,freq in enumerate(tempdic):           
+                newdic[ind] = min(tempdic[ind],dic[ind])
             dic = newdic
         ans = []
-        for ch,freq in dic.items():
+        for ind,freq in enumerate(dic):
             for _ in range(freq):
-                ans.append(ch)
+                ans.append(chr(ind+97))
             
         return ans
