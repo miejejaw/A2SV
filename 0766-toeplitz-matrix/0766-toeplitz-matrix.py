@@ -1,16 +1,20 @@
 class Solution:
     def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
-        dic = {}
+        paths = set()
         row_len = len(matrix)
         col_len = len(matrix[0])
         
-        for col,num in enumerate(matrix[0]):
-            dic[(0,col)] = num
-        for row in range(1,row_len):
-            dic[(row,0)] = matrix[row][0]
+        for col in range(col_len-1):
+            paths.add((0,col))
+        for row in range(1,row_len-1):
+            paths.add((row,0))
             
-        for row,col in product(range(1,row_len),range(1,col_len)):
-            temp = min(row,col)
-            if matrix[row][col] != dic[(row-temp,col-temp)]:
-                return False
+        for row,col in paths:
+            row += 1
+            col += 1
+            while row_len>row and col_len>col:
+                if matrix[row][col] != matrix[row-1][col-1]:
+                    return False
+                row += 1
+                col += 1
         return True
