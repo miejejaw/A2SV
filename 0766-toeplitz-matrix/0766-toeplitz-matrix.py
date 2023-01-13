@@ -9,9 +9,8 @@ class Solution:
         for row in range(1,row_len):
             dic[(row,0)] = matrix[row][0]
             
-        for row in range(row_len):
-            for col in range(col_len):
-                temp = min(row,col)
-                if matrix[row][col] != dic[(row-temp,col-temp)]:
-                    return False
+        for row,col in product(range(1,row_len),range(1,col_len)):
+            temp = min(row,col)
+            if matrix[row][col] != dic[(row-temp,col-temp)]:
+                return False
         return True
