@@ -8,11 +8,10 @@ class Solution:
                 if matrix[row][col]==0:
                     col_set.add(col)
                     row_set.add(row)
-        for row in row_set:
+        for row in range(rows):
             for col in range(cols):
-                matrix[row][col] = 0
-        for col in col_set:
-            for row in range(rows):
-                matrix[row][col] = 0  
+                if row in row_set or col in col_set:
+                    matrix[row][col] = 0
+ 
         
         
