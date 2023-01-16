@@ -13,7 +13,7 @@ class Solution:
         temp = [1,2,3,4,5,6,7,8,9]
         nums = [a,b,c,d,e,f,g,h,i]
         nums.sort()
-        if (temp==nums and (a+b+c == d+e+f == g+h+i == a+d+g ==b+e+h == c+f+i == a+e+i == c+e+g == 15)):
+        if (temp==nums and (a+b+c == d+e+f == g+h+i == a+d+g ==b+e+h == c+f+i == a+e+i == c+e+g)):
             return 1
         return 0
 
