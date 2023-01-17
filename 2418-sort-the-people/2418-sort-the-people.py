@@ -3,7 +3,7 @@ class Solution:
         size = len(names)
         for i in range(size):
             isswap = False
-            for j in range(size-1,i,-1):
+            for j in range(1,size):
                 if heights[j]>heights[j-1]:
                     heights[j],heights[j-1] = heights[j-1],heights[j]
                     names[j],names[j-1] = names[j-1],names[j]
