@@ -5,4 +5,6 @@ class Solution:
         for ind,num in enumerate(nums):
             if num==target:
                 res.append(ind)
+            elif num>target:
+                break
         return res
