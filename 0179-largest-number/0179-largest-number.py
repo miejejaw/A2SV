@@ -1,4 +1,3 @@
-import functools
 class Solution:
     def largestNumber(self, nums: List[int]) -> str:
         nums = list(map(str,nums))
@@ -7,8 +6,7 @@ class Solution:
                 return 1
             return -1
         
-        nums = sorted(nums, key = functools.cmp_to_key(compare))
-        res = "".join(nums)
-        return res if res[0]!="0" else "0"
+        nums = sorted(nums, key = cmp_to_key(compare))
+        return "".join(nums).lstrip("0") or "0"
     
         
