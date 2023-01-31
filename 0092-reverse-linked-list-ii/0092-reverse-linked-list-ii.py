@@ -1,8 +1,7 @@
 
 class Solution:
     def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
-        if right==left:
-            return head
+        if right==left: return head
         dummy = ListNode()
         dummy.next = head
         
@@ -13,12 +12,11 @@ class Solution:
         ptr = lists
         temp = lists.next
         node = None
-        while left<=right and temp:
+        for _ in range(right-left+1):
             newNode = temp
             temp = temp.next
             newNode.next = node
             node = newNode
-            left += 1
             
         ptr.next = node  
         while ptr.next:
