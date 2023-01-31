@@ -11,6 +11,7 @@ class Solution:
                     
         ptr = lists
         temp = lists.next
+        ptr2 = temp
         node = None
         for _ in range(right-left+1):
             newNode = temp
@@ -19,9 +20,7 @@ class Solution:
             node = newNode
             
         ptr.next = node  
-        while ptr.next:
-            ptr = ptr.next
-        ptr.next = temp
+        ptr2.next = temp
         
         return dummy.next
             
