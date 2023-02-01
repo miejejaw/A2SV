@@ -3,18 +3,24 @@ class Solution:
         if not head or k==0:
             return head
         
-        temp = head
-        nodes = []
-        while head:
-            nodes.append(head.val)
-            head = head.next
-        size = len(nodes)
-        k = size-1 - k%size
+        temp = prev = head
+        size = 0
+        while temp:
+            size += 1
+            prev = temp
+            temp = temp.next
         
-        nodes = nodes[k::-1] + nodes[:k:-1]
-            
-        head = temp
-        for val in reversed(nodes):
-            head.val = val
-            head = head.next
-        return temp
+        if 0 == k%size:
+            return head
+        
+        temp = head     
+        for i in range(size- k%size-1):
+            temp = temp.next
+        
+        newHead = temp.next
+        temp.next = None    
+        prev.next = head 
+        
+        return newHead
+
+        
