@@ -1,16 +1,24 @@
 class Solution:
     def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
         st = []
-        while head:
-            while st and head.val>st[-1]:
+        curr = head
+        while curr:
+            while st and curr.val > st[-1]:
                 st.pop()
-            st.append(head.val)
-            head = head.next
-            
-        dummy = ListNode() 
-        curr = dummy
-        for val in st:
-            curr.next = ListNode(val)
+            st.append(curr.val)
             curr = curr.next
-            
+        
+        size,ind = len(st),0
+        dummy = ListNode(0,head)
+        curr = dummy
+       
+        while curr.next and ind<size:
+            if curr.next.val < st[ind]:
+                curr.next = curr.next.next
+            else:
+                if curr.next.val == st[ind]:
+                    ind += 1
+                curr = curr.next
+        
         return dummy.next
+            
