@@ -10,10 +10,9 @@ class Solution:
         rev = None
         while slow: 
             newNode = slow
-            temp = slow.next
+            slow = slow.next
             newNode.next = rev
             rev = newNode
-            slow = temp
             
         while rev:   
             if rev.val != head.val:
