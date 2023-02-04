@@ -3,24 +3,19 @@ class Solution:
         dummy = ListNode()
         curr = dummy
         size = len(lists)
-        j = 0
-        while j<size:
-            if not lists[j]:
-                del lists[j]
-                size -= 1
-            else: 
-                j += 1
-        
-        while lists:
-            j = 0
-            for i in range(1,size):
-                if lists[j].val>lists[i].val:
-                    j = i
-            curr.next = lists[j]
+       
+        while True:
+            j = float("inf")
+            k = -1
+            for i in range(size):
+                if lists[i] and j>lists[i].val:
+                    j = lists[i].val
+                    k = i
+            if k==-1:
+                break
+            curr.next = lists[k]
             curr = curr.next
-            lists[j] = lists[j].next
-            if not lists[j]:
-                del lists[j]
-                size -= 1
+            lists[k] = lists[k].next
+            
         curr.next = None
         return dummy.next
