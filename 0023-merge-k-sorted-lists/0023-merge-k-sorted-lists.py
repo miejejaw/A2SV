@@ -19,3 +19,4 @@ class Solution:
             
         curr.next = None
         return dummy.next
+#10min
