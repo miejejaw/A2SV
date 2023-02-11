@@ -6,10 +6,8 @@ class Solution:
             dic[num] += 1
         
         for num in nums2:
-            if num in dic:
+            if dic[num]>0:
                 res.append(num)
                 dic[num] -= 1
-                if dic[num] == 0:
-                    del dic[num]
         
         return res
