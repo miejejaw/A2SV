@@ -2,10 +2,11 @@ class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         res = 0
         size = len(s)
+        seen = set(s)
         for letter in range(65,92):
             ch = chr(letter)
             beg,count = 0,k
-            if ch not in s:
+            if ch not in seen:
                 continue
             for end in range(size):
                 if s[end] != ch and count>0:
