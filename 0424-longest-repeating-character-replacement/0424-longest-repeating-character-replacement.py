@@ -3,11 +3,8 @@ class Solution:
         res = 0
         size = len(s)
         seen = set(s)
-        for letter in range(65,92):
-            ch = chr(letter)
+        for ch in seen:
             beg,count = 0,k
-            if ch not in seen:
-                continue
             for end in range(size):
                 if s[end] != ch and count>0:
                     count -= 1
