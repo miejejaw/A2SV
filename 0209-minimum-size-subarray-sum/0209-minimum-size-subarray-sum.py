@@ -10,6 +10,6 @@ class Solution:
                 res = min(res,end-beg+1)
                 total -= nums[beg]
                 beg += 1
-            
-        return  res if res < size+1 else 0
+                
+        return  res % (size+1)
     
