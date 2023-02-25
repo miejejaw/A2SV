@@ -6,14 +6,12 @@ class Solution:
         beg = 0
         for end in range(1,size):
             if (end%2==1 and arr[end-1]<=arr[end]) or (end%2==0 and arr[end-1]>=arr[end]):
-                res = max(res,end-beg)
                 beg = end   
             res = max(res,end-beg+1)
             
         beg = 0   
         for end in range(1,size):
             if (end%2==0 and arr[end-1]<=arr[end]) or (end%2==1 and arr[end-1]>=arr[end]):
-                res = max(res,end-beg)
                 beg = end
             res = max(res,end-beg+1)
             
