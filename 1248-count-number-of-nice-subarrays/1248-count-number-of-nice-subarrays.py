@@ -5,7 +5,7 @@ class Solution:
             nums[ind] %= 2
         nums = accumulate(nums)
         nums = Counter(nums)
-        nums[0] = nums.get(0,0)+1
+        nums[0] += 1
         res = 0
         size = len(nums)
         for ind in range(k,size):
