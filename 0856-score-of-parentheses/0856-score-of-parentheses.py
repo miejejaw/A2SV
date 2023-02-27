@@ -4,15 +4,12 @@ class Solution:
         for p in s:
             if p == "(":
                 st.append("(")
-            elif st[-1] == "(":
-                st.pop()
-                if st and st[-1] != "(":
-                    st[-1] += 1
-                else:
-                    st.append(1)
             else:
-                temp = st.pop()*2
-                st.pop()
+                temp = 1   
+                if st[-1] != "(":
+                    temp = st.pop()*2
+
+                st.pop()   
                 if st and st[-1] != "(":
                     st[-1] += temp
                 else:
