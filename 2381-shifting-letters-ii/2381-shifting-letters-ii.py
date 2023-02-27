@@ -10,17 +10,16 @@ class Solution:
                 res[shift[0]] += 1
                 res[shift[1]+1] -= 1
                 
-        res = list(accumulate(res))
-        ans = [0]*size
-        for ind in range(size):
-            temp = ord(s[ind]) + res[ind]%26
+        res.pop()       
+        for ind,val in enumerate(accumulate(res)):
+            temp = ord(s[ind]) + val%26
             if temp>122:
-                ans[ind] = chr(temp-26)
+                res[ind] = chr(temp-26)
             elif temp<97:
-                ans[ind] = chr(temp+26)
+                res[ind] = chr(temp+26)
             else:
-                ans[ind] = chr(temp)
-                
-        return "".join(ans)
+                res[ind] = chr(temp)
+               
+        return "".join(res)
             
             
