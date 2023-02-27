@@ -1,14 +1,14 @@
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
-        
+        if tickets[k] == 0:
+            return 0
         size = len(tickets)
+        num = tickets[k]
         ans = 0
-        while tickets[k]:
-            for ind in range(size):
-                if tickets[ind] != 0:
-                    tickets[ind] -= 1
-                    ans += 1
-                    if tickets[k] == 0:
-                        return ans
+        for ind in range(size):
+            if ind <= k:
+                ans += min(num,tickets[ind])
+            else:
+                ans += min(num-1,tickets[ind])
 
-        return 0
+        return ans
