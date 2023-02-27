@@ -1,7 +1,6 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         st= []
-        num = float("-inf")
         for token in tokens:
             if token.isdigit() or len(token)>1:
                 st.append(token)
