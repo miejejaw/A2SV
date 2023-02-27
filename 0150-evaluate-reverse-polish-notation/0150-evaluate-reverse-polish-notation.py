@@ -2,11 +2,19 @@ class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         st= []
         for token in tokens:
-            if token.isdigit() or len(token)>1:
-                st.append(token)
+            if token.isdigit():
+                st.append(int(token))
+            elif len(token)>1:
+                st.append(-int(token[1:]))
             else:
                 num2,num1 = st.pop(),st.pop()
-                res = eval(num1+token+num2)
-                st.append(str(int(res)))
+                if token == "+":
+                    st.append(num1+num2)
+                elif token == "-":
+                    st.append(num1-num2)
+                elif token == "*":
+                    st.append(num1*num2)
+                else:
+                    st.append(int(num1/num2))
                 
-        return int(st[0])
+        return st[0]
