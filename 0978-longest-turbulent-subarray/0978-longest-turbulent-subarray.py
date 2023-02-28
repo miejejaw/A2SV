@@ -3,16 +3,15 @@ class Solution:
         
         size = len(arr)
         res = 1
-        beg = 0
+        beg2 = 0
+        beg1 = 0
         for end in range(1,size):
             if (end%2==1 and arr[end-1]<=arr[end]) or (end%2==0 and arr[end-1]>=arr[end]):
-                beg = end   
-            res = max(res,end-beg+1)
-            
-        beg = 0   
-        for end in range(1,size):
+                beg1 = end   
+            res = max(res,end-beg1+1)
+      
             if (end%2==0 and arr[end-1]<=arr[end]) or (end%2==1 and arr[end-1]>=arr[end]):
-                beg = end
-            res = max(res,end-beg+1)
+                beg2 = end
+            res = max(res,end-beg2+1)
             
         return res
