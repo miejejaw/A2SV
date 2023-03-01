@@ -1,14 +1,13 @@
 class Solution:
     def reverseString(self, s: List[str]) -> None:
-        self.s = s
-        self.reverse(0,len(self.s)-1)
-        return self.s
+        self.reverse(s,0,len(s)-1)
+        return s
     
-    def reverse(self,fr,to):
+    def reverse(self, s, fr, to):
         if to < 0:
             return
-        temp = self.s[fr]
-        self.reverse(fr+1,to-1)
-        self.s[to] = temp
+        temp = s[fr]
+        self.reverse(s,fr+1,to-1)
+        s[to] = temp
         
         
