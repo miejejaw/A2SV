@@ -1,14 +1,14 @@
 class Solution:
     def find132pattern(self, nums: List[int]) -> bool:
         st = []
-        size = len(nums)-1
+        length = len(nums)
         num = float("-inf")
-        for ind in range(size,-1,-1):
-            while st and nums[ind]>st[-1]:
-                num = st.pop()
-                
-            if st and num>nums[ind]:
+        
+        for ind in range(length-1,-1,-1):
+            if num>nums[ind]:
                 return True
+            while st and nums[ind]>st[-1]:
+                num = st.pop()         
             st.append(nums[ind])
                 
         return False
