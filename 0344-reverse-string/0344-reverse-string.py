@@ -3,6 +3,7 @@ class Solution:
         self.reverse(s,0,len(s)-1)
         return s
     
+    #fr(from) and to are indices
     def reverse(self, s, fr, to):
         if to < 0:
             return
