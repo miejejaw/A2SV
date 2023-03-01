@@ -3,12 +3,11 @@ class Solution:
         self.reverse(s,0,len(s)-1)
         return s
     
-    #fr(from) and to are indices
-    def reverse(self, s, fr, to):
-        if fr >= to:
+    def reverse(self, s, beg, end):
+        if beg >= end:
             return
         
-        self.reverse(s,fr+1,to-1)
-        s[to],s[fr] = s[fr],s[to]
+        self.reverse(s,beg+1,end-1)
+        s[end],s[beg] = s[beg],s[end]
         
         
