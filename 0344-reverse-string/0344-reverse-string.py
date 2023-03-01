@@ -5,10 +5,10 @@ class Solution:
     
     #fr(from) and to are indices
     def reverse(self, s, fr, to):
-        if to < 0:
+        if fr >= to:
             return
-        temp = s[fr]
+        
         self.reverse(s,fr+1,to-1)
-        s[to] = temp
+        s[to],s[fr] = s[fr],s[to]
         
         
