@@ -28,11 +28,8 @@ class Solution:
                     word.append(s[beg])
                     beg += 1
             temp = "".join(word) 
-            word = ""
-            for _ in range(num):
-                word += temp
-            
-            return [list(word),beg+1]
+            word = [temp]*num           
+            return [word,beg+1]
             
         else:
             word = []
