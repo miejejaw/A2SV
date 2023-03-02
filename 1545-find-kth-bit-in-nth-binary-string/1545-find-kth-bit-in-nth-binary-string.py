@@ -11,6 +11,6 @@ class Solution:
         
         for ind in range(length):
             if s[ind] == 0:
-                temp[ind] = 1
+                temp[~ind] = 1
         
-        return self.helper(n-1, s+[1]+temp[::-1], k)
+        return self.helper(n-1, s+[1]+temp, k)
