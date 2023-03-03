@@ -4,9 +4,10 @@ class Solution:
         st = []
         length = len(nums)
         res = [-1]*len(nums)
-        for ind in range(length*2):
-            while st and nums[ind%length] > nums[st[-1]]:
-                res[st.pop()] = nums[ind%length] 
-            st.append(ind%length)
+        for index in range(length*2):
+            ind = index%length
+            while st and nums[ind] > nums[st[-1]]:
+                res[st.pop()] = nums[ind] 
+            st.append(ind)
         
         return res
