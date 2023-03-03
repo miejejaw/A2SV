@@ -14,7 +14,7 @@ class Solution:
             else:
                 right = midPoint - 1
                 
-        if left >= len(arr) or arr[left] != k:
+        if left == len(arr) or arr[left] != k:
             left = -1
         res[0] = left
         
