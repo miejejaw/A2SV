@@ -1,7 +1,7 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
 
-        left = 1
+        left = 0
         right = x//2+1
         while left <= right:
             mid = left + (right-left)//2
