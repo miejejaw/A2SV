@@ -1,10 +1,8 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-        if x < 2:
-            return x
+
         left = 1
-        right = x//2
-        mid = 0
+        right = x//2+1
         while left <= right:
             mid = left + (right-left)//2
             if mid*mid < x:
@@ -13,8 +11,6 @@ class Solution:
                 right = mid - 1
             else:
                 return mid
-        if right*right <= x:
-            return right
-        elif left*left <= x:
-            return left
+        
+        return right
             
