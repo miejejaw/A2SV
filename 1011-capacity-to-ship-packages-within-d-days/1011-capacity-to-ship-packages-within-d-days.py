@@ -5,16 +5,14 @@ class Solution:
         right = total
         ans = total
         
-        while left <= right:
+        while left < right:
             mid = left + (right-left)//2
             
-            res = self.helper(weights,mid,days)
-            if res:
-                ans = min(ans,mid)
-                right = mid - 1
+            if self.helper(weights,mid,days):
+                right = mid
             else:
                 left = mid + 1
-        return ans
+        return left
         
     def helper(self,arr,mid,days):
         total = 0
