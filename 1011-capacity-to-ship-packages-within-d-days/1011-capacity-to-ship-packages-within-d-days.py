@@ -16,16 +16,12 @@ class Solution:
         
     def helper(self,arr,mid,days):
         total = 0
+        day = 1
         for num in arr:
-            if mid < num:
-                return False
             total += num
             if total > mid:
-                days -= 1
+                day += 1
                 total = num
-            
-        if total > 0:
-            days -= 1
         
-        return True if days >= 0 else False
+        return days >= day
     
