@@ -8,6 +8,7 @@ class Solution:
             
             left = self.helper(curr.left,p,q)
             right = self.helper(curr.right,p,q)
+            
             if left and not right:
                 return left
             elif not left and right:
