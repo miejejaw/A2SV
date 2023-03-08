@@ -24,3 +24,4 @@ class Solution:
         if not curr and not subRoot:
             return True
         return False
+    #40
