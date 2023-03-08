@@ -14,3 +14,4 @@ class Solution:
         
         if l != r:
             self.ans = False
+# 10
