@@ -5,7 +5,6 @@ class Solution:
     
     def helper(self,curr,num):
         if curr:
-            
             right = self.helper(curr.right,num) 
             curr.val += right + num
             left = self.helper(curr.left, curr.val)
