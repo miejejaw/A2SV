@@ -11,7 +11,6 @@ class Solution:
             self.isValid(curr.right,False)
             if self.num <= curr.val:
                 self.ans = False
-                return
             self.num = curr.val
             self.isValid(curr.left,True)
             
