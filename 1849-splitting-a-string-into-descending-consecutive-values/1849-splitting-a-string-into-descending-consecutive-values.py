@@ -13,8 +13,8 @@ class Solution:
             temp = ''
             for i in range(ind,self.length):
                 temp += s[i]
-                # if arr and int(arr[-1]) - int(temp) > 1 :
-                #     return
+                if arr and int(arr[-1]) < int(temp):
+                    return
                 if arr and int(arr[-1]) - int(temp) != 1:
                     continue
                 else:
