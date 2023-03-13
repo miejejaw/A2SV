@@ -3,6 +3,7 @@ class Solution:
         self.total = sum(cookies)
         self.ans = self.total
         self.length = len(cookies)
+        cookies.sort(reverse = True)
         self.helper([0]*k,cookies,0,0,k)
         return self.ans
     
