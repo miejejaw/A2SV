@@ -6,10 +6,8 @@ class Solution:
         return self.ans
     
     def helper(self,arr,s,ind):
-        if ind == self.length and len(arr)>1:
-            self.ans = True
             
-        if not self.ans:
+        if not self.ans and ind < self.length:
             temp = ''
             for i in range(ind,self.length):
                 temp += s[i]
@@ -19,3 +17,7 @@ class Solution:
                     continue
                 else:
                     self.helper(arr+[temp],s,i+1)
+            return
+        
+        if len(arr)>1:
+            self.ans = True
