@@ -3,17 +3,16 @@ class Solution:
         self.total = sum(cookies)
         self.ans = self.total
         self.length = len(cookies)
-        self.k = k
-        self.helper([0]*k,cookies,0,0)
+        self.helper([0]*k,cookies,0,0,k)
         return self.ans
     
-    def helper(self, arr, cookies, i,c):
+    def helper(self, arr, cookies, ind,c,k):
         if self.total > self.ans < arr[c]:
             return
-        if i < self.length:
-            for j in range(self.k):
-                arr[j] += cookies[i]
-                self.helper(arr,cookies,i+1,j)
-                arr[j] -= cookies[i]  
+        if ind < self.length:
+            for j in range(k):
+                arr[j] += cookies[ind]
+                self.helper(arr,cookies,ind+1,j,k)
+                arr[j] -= cookies[ind]  
             return 
         self.ans = min(self.ans,max(arr))
