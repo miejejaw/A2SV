@@ -7,7 +7,6 @@ class Solution:
     
     def helper(self,arr,nums,ind):
         if ind < self.length:
-            self.helper(arr+[nums[ind]],nums,ind+1)
-            self.helper(arr,nums,ind+1)
-            return 
+            for i in range(ind,self.length):
+                self.helper(arr+[nums[i]],nums,i+1)
         self.ans.append(arr)
