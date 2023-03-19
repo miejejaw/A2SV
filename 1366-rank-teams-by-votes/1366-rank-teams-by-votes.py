@@ -1,5 +1,6 @@
 class Solution:
     def rankTeams(self, votes: List[str]) -> str:
+        
         _len = len(votes[0])
         res = [[]]*26
         for ch in votes[0]:
