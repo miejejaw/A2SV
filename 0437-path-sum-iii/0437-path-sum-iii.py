@@ -10,7 +10,8 @@ class Solution:
             if total - target in rem:
                 self.ans += rem[total-target]
             
-            temp = rem.get(total,0)+1
-            self.helper(curr.left,target,total,rem|{total:temp})
-            self.helper(curr.right,target,total,rem|{total:temp})
+            rem[total] = rem.get(total,0)+1
+            self.helper(curr.left,target,total,rem)
+            self.helper(curr.right,target,total,rem)
+            rem[total] -= 1
             
