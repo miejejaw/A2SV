@@ -8,9 +8,12 @@ class Solution:
     def helper(self,curr,arr,total):
         if curr:
             total += curr.val
+            arr.append(curr.val)
             if not curr.left and not curr.right and total == self.targetSum:
-                self.ans.append(arr+[curr.val])
+                self.ans.append(arr[:])
+                arr.pop()
                 return 
             
-            self.helper(curr.left,arr+[curr.val],total)
-            self.helper(curr.right,arr+[curr.val],total)
+            self.helper(curr.left,arr,total)
+            self.helper(curr.right,arr,total)
+            arr.pop()
