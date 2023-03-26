@@ -7,10 +7,7 @@ class Solution:
     
     def helper(self,s,ind,count,res):
         
-        if ind < self.length:
-            if count == 4:
-                return
-            
+        if ind < self.length and count < 4:
             num = ""
             for i in range(ind,ind+3):
                 num += s[i]
@@ -19,8 +16,7 @@ class Solution:
                 self.helper(s,i+1,count+1,res+[num])
                 if num[0] == "0" or i+1 == self.length:
                     return
-                
             return
         
-        if count == 4:
+        if count == 4 and ind == self.length:
             self.ans.append(".".join(res))
