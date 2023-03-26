@@ -12,12 +12,12 @@ class Solution:
                 return
             
             num = ""
-            for i in range(ind,self.length):
+            for i in range(ind,ind+3):
                 num += s[i]
                 if int(num) > 255:
                     return
                 self.helper(s,i+1,count+1,res+[num])
-                if num[0] == "0":
+                if num[0] == "0" or i+1 == self.length:
                     return
                 
             return
