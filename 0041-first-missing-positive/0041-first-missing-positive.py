@@ -10,6 +10,7 @@ class Solution:
             while j >= 0 and j != ind:
                 if nums[j] == nums[ind]:
                     nums[ind] = -1
+                    break
                 
                 temp = nums[j]
                 nums[j] = nums[ind]
