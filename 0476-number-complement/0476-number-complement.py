@@ -3,8 +3,8 @@ class Solution:
         
         res = 0
         ind = 0
-        while num > 0:
-            if num & 1 == 0:
+        while num:
+            if not num & 1:
                 res += 2**ind
                 
             ind += 1
