@@ -4,24 +4,15 @@ class Solution:
         ans = 0
         length = len(words)
         res = self.helper(words)
+        # print(bin(res[0]),bin(res[1]),bin(res[2]))
         
         for ind in range(length):
             _len = len(words[ind])
             for j in range(ind+1,length):
-                if self.checker(res[ind],res[j]):
+                if not (res[ind] & res[j]):
                     ans = max(ans,len(words[j])*_len)
                     
-        return ans
-                          
-    def checker(self,res1,res2):
-                          
-        while res1 and res2:
-            if res1 & 1 == res2 & 1 == 1:
-                return False
-            res1 >>= 1 
-            res2 >>= 1
-            
-        return True
+        return ans                          
                           
     def helper(self,words):
         ans = []
@@ -29,6 +20,8 @@ class Solution:
             res = 0
             for ch in word:
                 ind = ord(ch) - 97
+                # if res & (1 << ind) == 0:
                 res |= 1 << ind
             ans.append(res)
+            
         return ans
