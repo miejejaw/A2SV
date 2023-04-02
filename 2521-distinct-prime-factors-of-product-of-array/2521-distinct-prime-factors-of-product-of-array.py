@@ -3,16 +3,14 @@ class Solution:
         
         visited = set()
         for num in nums:
-            mult = 2
-            temp = num
+            p = 2
+            while p * p <= num:
+                while num % p == 0:
+                    num //= p
+                    visited.add(p)
+                p += 1
 
-            while mult * mult <= num:
-                while temp % mult == 0:
-                    temp //= mult
-                    visited.add(mult)
-                mult += 1
-
-            if temp > 1:
-                visited.add(temp)
+            if num > 1:
+                visited.add(num)
             
         return len(visited)
