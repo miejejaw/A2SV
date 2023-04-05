@@ -17,9 +17,10 @@ class Solution:
         for num in s:
             temp = []
             ind = 0
-            for bit in reversed(bin(num)[2:]):
-                if bit == "1":
+            while num:
+                if num & 1:
                     temp.append(nums[ind])
+                num >>= 1
                 ind += 1
             res.append(temp)
         return res
