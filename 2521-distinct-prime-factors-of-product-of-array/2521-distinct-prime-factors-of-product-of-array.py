@@ -6,8 +6,9 @@ class Solution:
             p = 2
             while p * p <= num:
                 while num % p == 0:
-                    num //= p
                     visited.add(p)
+                    while num % p == 0:
+                        num //= p
                 p += 1
 
             if num > 1:
