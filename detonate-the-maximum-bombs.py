@@ -4,22 +4,19 @@ class Solution:
         length = len(bombs)
         bombsDetonate = self.getDetonatedBombs(bombs,length)
         
-        self.visited = set()
-        self.ans = 0
+        ans = 0
         for bomb in range(length):
-            self.dfs(bombsDetonate,bomb,set({bomb})) 
-            self.visited.clear()
-        return self.ans
+            seen = set()
+            self.dfs(bombsDetonate,bomb,seen) 
+            ans = max(ans,len(seen))
+        return ans
      
     def dfs(self, bombsDetonate, bomb, seen):
 
-        self.ans = max(self.ans,len(seen))
-        if bombsDetonate[bomb]:
-            self.visited.add(bomb)
-            seen.update(bombsDetonate[bomb])
-            for detonated in bombsDetonate[bomb]:
-                if detonated not in self.visited:
-                    self.dfs(bombsDetonate,detonated,seen) 
+        seen.add(bomb)
+        for detonated in bombsDetonate[bomb]:
+            if detonated not in seen:
+                self.dfs(bombsDetonate,detonated,seen) 
             
     def getDetonatedBombs(self,bombs,length):
         bombsDetonate = [0]*length
