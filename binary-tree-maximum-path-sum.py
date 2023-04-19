@@ -13,8 +13,8 @@ class Solution:
                 left = 0
             if right < 0:
                 right = 0
+                
             self.ans = max(self.ans,curr.val+left+right)
-            res = curr.val + max(left,right)
-            return res if res > 0 else 0
+            return curr.val + max(left,right) 
         
         return 0
