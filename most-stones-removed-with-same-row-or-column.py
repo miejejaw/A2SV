@@ -13,19 +13,16 @@ class Solution:
         for _,col in cols.items():
             unionFind.union(col)
         
-        return unionFind.get()
+        count = 0
+        for i in range(length):
+            if i != unionFind.find(i):
+                count += 1
+        return count
         
 class UnionFind:
     def __init__(self, n):
         self.root = [i for i in range(n)]
     
-    def get(self):
-        count = 0
-        for i,val in enumerate(self.root):
-            if i != val:
-                count += 1
-        return count
-
     def find(self, a):
         if self.root[a] != a:
             self.root[a] = self.find(self.root[a]) 
