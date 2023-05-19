@@ -3,11 +3,9 @@ class Solution:
         length = len(stones)
         rows = defaultdict(list)
         cols = defaultdict(list)
-        i = 0
-        for x,y in stones:
-            rows[x].append(i)
-            cols[y].append(i)
-            i += 1
+        for i,point in enumerate(stones):
+            rows[point[0]].append(i)
+            cols[point[1]].append(i)
         
         unionFind = UnionFind(length)
         for _,row in rows.items():
@@ -27,6 +25,7 @@ class UnionFind:
             if i != val:
                 count += 1
         return count
+
     def find(self, a):
         if self.root[a] != a:
             self.root[a] = self.find(self.root[a]) 
