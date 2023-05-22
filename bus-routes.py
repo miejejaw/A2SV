@@ -11,12 +11,11 @@ class Solution:
                 if routes[ind] & routes[i]:
                     graph[ind].append(i)
                     graph[i].append(ind)
-        s = -1
+                    
+        s,t = -1,-1
         for ind,route in enumerate(routes):
             if source in route:
                 s = ind
-        t = -1
-        for ind,route in enumerate(routes):
             if target in route:
                 t = ind
 
