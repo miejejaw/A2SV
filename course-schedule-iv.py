@@ -6,8 +6,8 @@ class Solution:
         for c1,c2 in prerequisites:
             graph[c1].append(c2)
             seen.add(c2)
-        isReachable = [[False]*numCourses for _ in range(numCourses)]
-        self.r = {}
+            
+        isReachable = {}
         for course in range(numCourses):
             if course not in seen:
                 self.dfs(graph,isReachable,course)
@@ -15,20 +15,20 @@ class Solution:
         length = len(queries)
         ans = [False]*length
         for ind in range(length):
-            ans[ind] = isReachable[queries[ind][0]][queries[ind][1]]
+            if queries[ind][1] in isReachable[queries[ind][0]]:
+                ans[ind] = True
         return ans
 
     def dfs(self, graph, isReachable, pre):
         
-        temp = []
+        temp = set()
         for course in graph[pre]:
-            if course in self.r:
-                temp += self.r[course]+[course]
+            if course in isReachable:
+                temp.update(isReachable[course])
+                temp.add(course)
             else:
-                temp += self.dfs(graph, isReachable,course)
+                temp.update(self.dfs(graph, isReachable,course))
         
-        temp = list(set(temp))
-        for c in temp:
-            isReachable[pre][c] = True
-        self.r[pre] = temp
-        return temp+[pre]
+        isReachable[pre] = temp
+        temp.add(pre)
+        return temp
