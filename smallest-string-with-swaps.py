@@ -7,20 +7,18 @@ class Solution:
             unionFind.union(a,b)
 
         res = defaultdict(list)
+        ss = defaultdict(list)
         for ind in range(length):
             a = unionFind.find(ind)
             res[a].append(ind)
+            ss[a].append(s[ind])
 
         s = list(s)
-        for _,arr in res.items():
-            arr.sort()
-            temp = []
-            for ind in arr:
-                temp.append(s[ind])
-            temp.sort()
+        for a,arr in res.items():
+            ss[a].sort()
             i=0
-            for ind in arr:
-                s[ind] = temp[i]
+            for ind in sorted(arr):
+                s[ind] = ss[a][i]
                 i += 1
 
         return "".join(s)
