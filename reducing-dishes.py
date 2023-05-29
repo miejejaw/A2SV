@@ -3,11 +3,11 @@ class Solution:
 
         length = len(satisfaction)
         satisfaction.sort()
-        ans = 0
-        for i in range(length):
-            total = 0
-            for j in range(i,length):
-                total += satisfaction[j]*(j-i+1)
-            ans = max(ans,total)
-
+        ans = total = 0
+        
+        for i in range(length-1,-1,-1):
+            total += satisfaction[i]
+            if total <= 0: break
+            ans +=  total
+            
         return ans
