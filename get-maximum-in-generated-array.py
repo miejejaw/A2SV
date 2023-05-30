@@ -11,10 +11,8 @@ class Solution:
 
     def dfs(self,n):
         if n in self.d: return self.d[n]
-
-        if n%2 == 0:
-            self.d[n] = self.dfs(n//2)
-        else:
-            self.d[n] = self.dfs(n//2)+self.dfs(n//2+1)
+        self.d[n] = self.dfs(n//2)
+        if n%2 == 1:
+            self.d[n] += self.dfs(n//2+1)
         self.ans = max(self.ans,self.d[n])
         return self.d[n]
