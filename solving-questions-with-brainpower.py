@@ -2,10 +2,8 @@ class Solution:
     def mostPoints(self, questions: List[List[int]]) -> int:
 
         self.length = len(questions)
-        self.dp,ans = {},0
-        for ind in range(self.length):
-            ans = max(ans,self.helper(questions,ind))
-        return ans
+        self.dp = {}
+        return self.helper(questions,0)
 
     def helper(self, nums, ind):
         if ind < self.length:
